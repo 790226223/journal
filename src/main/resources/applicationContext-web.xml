@@ -18,5 +18,6 @@
 		<context:component-scan base-package="chenweipan.journal.service"/>
 		
 		<import resource="applicationContext-jpa.xml"/>
+		<import resource="classpath:appctx-security.xml" />
 		
 </beans:beans>
