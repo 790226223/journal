@@ -14,10 +14,10 @@
 		
 		<context:annotation-config />
 		<context:property-placeholder location="classpath:chenweipan.properties" />
-		
+
 		<context:component-scan base-package="chenweipan.journal.service"/>
-		
+
 		<import resource="applicationContext-jpa.xml"/>
-		<import resource="classpath:appctx-security.xml" />
-		
+		<import resource="appctx-security.xml" />
+
 </beans:beans>
