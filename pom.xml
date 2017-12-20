@@ -2,157 +2,96 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.hzzc.cwp</groupId>
-  <artifactId>chenweipan</artifactId>
-  <packaging>war</packaging>
-  <version>1.0.0</version>
-  <name>chenweipan</name>
+  <artifactId>journal</artifactId>
+  <packaging>jar</packaging>
+  <version>1.1.0</version>
+  <name>journal web maven app</name>
   <url>http://maven.apache.org</url>
-  
-  <properties>
-		<spring.version>4.3.9.RELEASE</spring.version>
-	</properties>
-  
-  <profiles>
-  	<profile>
-  		<id>dev</id>
-		<properties>
-			<logger.level>DEBUG</logger.level>
-			<jdbc.resource.name>chenweipan</jdbc.resource.name>
-		</properties>
-		<build>
-			<resources>
-				<resource>
-					<directory>src/main/resources</directory>
-					<filtering>true</filtering>
-				</resource>
-				<resource>
-					<directory>env/dev</directory>
-					<filtering>true</filtering>
-					<includes>
-						<include>tomcat/context.xml</include>
-						<include>chenweipan.properties</include>
-					</includes>
-				</resource>
-			</resources>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.tomcat.maven</groupId>
-					<artifactId>tomcat7-maven-plugin</artifactId>
-					<version>2.2</version>
-					<configuration>
-						<port>8082</port>
-						<contextFile>env/dev/tomcat/context.xml</contextFile>
-						<uriEncoding>UTF-8</uriEncoding>
-						<server>tomcat7</server>
-					</configuration>
-				</plugin>
-			</plugins>
-		</build>
-		<dependencies>
-			<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-			<dependency>
-			    <groupId>mysql</groupId>
-			    <artifactId>mysql-connector-java</artifactId>
-			    <version>5.1.42</version>
-			</dependency>
 
-		</dependencies>
-  	</profile>
-  </profiles>
-  
-  <dependencies>
-	<dependency>
-  		<groupId>javax.servlet</groupId>
-  		<artifactId>servlet-api</artifactId>
-  		<version>2.4</version>
-  		<scope>provided</scope>
-  	</dependency>
-  	
-  	<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
+	<profiles>
+		<profile>
+			<id>java8-doclint</id>
+			<activation>
+				<jdk>[1.8,)</jdk>
+			</activation>
+			<properties>
+				<additionalparam>-Xdoclint:none</additionalparam>
+			</properties>
+		</profile>
+		<profile>
+			<id>release</id>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+						<filtering>true</filtering>
+						<excludes>
+							<exclude>application.properties</exclude>
+							<exclude>logback.xml</exclude>
+						</excludes>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+	</profiles>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.9.RELEASE</version>
+	</parent>
+
+	<dependencies>
+		<!-- spring boot -->
 		<dependency>
-			<artifactId>spring-tx</artifactId>
-			<groupId>org.springframework</groupId>
-			<version>${spring.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<artifactId>spring-orm</artifactId>
-			<groupId>org.springframework</groupId>
-			<version>${spring.version}</version>
-		</dependency>
+		<!-- jpa -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<version>1.2.0.RELEASE</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>spring-aop</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-context</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-beans</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-tx</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-core</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-orm</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
-		<!-- hibernate配置 -->
+
+		<!-- spring security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.5.Final</version>
+		</dependency>
+		<!-- aspect -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.10</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>5.1.2.Final</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.42</version>
 		</dependency>
-		<!--spring security-->
-	  <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
-	  <dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-web</artifactId>
-		  <version>4.2.3.RELEASE</version>
-	  </dependency>
-
-	  <dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-config</artifactId>
-		  <version>4.2.3.RELEASE</version>
-	  </dependency>
-	  <dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-acl</artifactId>
-		  <version>4.2.3.RELEASE</version>
-	  </dependency>
-	  <dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-aspects</artifactId>
-		  <version>4.2.3.RELEASE</version>
-	  </dependency>
 		<!-- log配置 -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.1.2</version>
+			<version>1.2.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -205,6 +144,6 @@
 	</dependency>
   </dependencies>
   <build>
-    <finalName>chenweipan</finalName>
+    <finalName>journal</finalName>
   </build>
 </project>
