@@ -1,8 +1,7 @@
 package chenweipan.journal.web;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
+import chenweipan.journal.model.CommonResult;
+import chenweipan.journal.service.DailyRecordService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import chenweipan.journal.service.DailyRecordService;
-import chenweipan.journal.util.CommonResult;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @Controller
 @RequestMapping("test")
