@@ -149,7 +149,19 @@
 		<version>2.3.8</version>
 	</dependency>
 	</dependencies>
-  <build>
-    <finalName>journal</finalName>
-  </build>
+	<build>
+		<finalName>journal</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>spring-milestone</id>
+			<url>http://repo.spring.io/libs-release</url>
+		</repository>
+	</repositories>
 </project>

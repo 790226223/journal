@@ -16,16 +16,15 @@ public class DailyRecordServiceImpl implements DailyRecordService {
 
 	public void createNewJournal(String dayTime, String things, String descript, Integer count, String unit,
 			String start, String end) {
-		System.out.println("dayTime:" + dayTime.toString() + ",start:" + start + ",end:" + end);
-		DailyRecord record = new DailyRecord();
-		record.setDayTime(dayTime);
-		record.setThings(things);
-		record.setDescript(descript);
-		record.setCount(count);
-		record.setUnits(unit);
-		record.setStartTime(start);
-		record.setEndTime(end);
-		dailyRecordRepository.saveAndFlush(record);
+//		System.out.println("dayTime:" + dayTime.toString() + ",start:" + start + ",end:" + end);
+//		DailyRecord record = new DailyRecord();
+//		record.setDayTime(dayTime);
+//		record.setDescript(descript);
+//		record.setCount(count);
+//		record.setUnits(unit);
+//		record.setStartTime(start);
+//		record.setEndTime(end);
+//		dailyRecordRepository.saveAndFlush(record);
 
 	}
 

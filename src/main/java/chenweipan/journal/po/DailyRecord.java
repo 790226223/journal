@@ -23,29 +23,17 @@ public class DailyRecord implements Serializable {
 	@Column(name = "day_time", nullable = false)
 	private String dayTime;
 
-	@Column(name = "things", nullable = false)
-	private String things;
+	@Column(name = "title", nullable = false)
+	private String title;
 
 	@Column(name = "descript")
 	private String descript;
 
-	@Column(name = "count")
-	private Integer count;
-
-	@Column(name = "units")
-	private String units;
-
-	@Column(name = "start_time")
-	private String startTime;
-
-	@Column(name = "end_time")
-	private String endTime;
-
 	@Column(name = "user_id")
 	private Integer userId;
 
-	@Column(name = "type_id")
-	private Integer typeId;
+	@Column(name = "sport_id")
+	private Integer sportId;
 
 	public long getId() {
 		return id;
@@ -63,12 +51,12 @@ public class DailyRecord implements Serializable {
 		this.dayTime = dayTime;
 	}
 
-	public String getThings() {
-		return things;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setThings(String things) {
-		this.things = things;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getDescript() {
@@ -79,38 +67,6 @@ public class DailyRecord implements Serializable {
 		this.descript = descript;
 	}
 
-	public Integer getCount() {
-		return count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count;
-	}
-
-	public String getUnits() {
-		return units;
-	}
-
-	public void setUnits(String units) {
-		this.units = units;
-	}
-
-	public String getStartTime() {
-		return startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-	}
-
-	public String getEndTime() {
-		return endTime;
-	}
-
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-	}
-
 	public Integer getUserId() {
 		return userId;
 	}
@@ -119,18 +75,23 @@ public class DailyRecord implements Serializable {
 		this.userId = userId;
 	}
 
-	public Integer getTypeId() {
-		return typeId;
+	public Integer getSportId() {
+		return sportId;
 	}
 
-	public void setTypeId(Integer typeId) {
-		this.typeId = typeId;
+	public void setSportId(Integer sportId) {
+		this.sportId = sportId;
 	}
 
 	@Override
 	public String toString() {
-		return "DailyRecord [id=" + id + ", dayTime=" + dayTime + ", things=" + things + ", descript=" + descript
-				+ ", count=" + count + ", units=" + units + ", startTime=" + startTime + ", endTime=" + endTime + "]";
+		return "DailyRecord{" +
+				"id=" + id +
+				", dayTime='" + dayTime + '\'' +
+				", title='" + title + '\'' +
+				", descript='" + descript + '\'' +
+				", userId=" + userId +
+				", sportId=" + sportId +
+				'}';
 	}
-
 }

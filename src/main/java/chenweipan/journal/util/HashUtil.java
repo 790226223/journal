@@ -10,7 +10,6 @@ public class HashUtil {
 			byte[] btInput = b;
 			MessageDigest mdInst = MessageDigest.getInstance("MD5");
 			mdInst.update(btInput);
-			// 鑾峰緱瀵嗘枃
 			byte[] md = mdInst.digest();
 			int j = md.length;
 			char str[] = new char[j * 2];
@@ -25,8 +24,5 @@ public class HashUtil {
 			e.printStackTrace();
 			return null;
 		}
-	}
-
-	public static void main(String[] args) {
 	}
 }

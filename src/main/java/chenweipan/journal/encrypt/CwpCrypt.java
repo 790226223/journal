@@ -103,11 +103,4 @@ public class CwpCrypt {
         else
             return (byte) removed;
     }
-
-    public static void main(String[] args) throws Exception {
-        String data = "wqnmgb000";
-        String crypted = CwpCrypt.cwpEncrypt(data);
-        System.out.println(crypted);
-        System.out.println(CwpCrypt.cwpDecrypt(crypted));
-    }
 }
