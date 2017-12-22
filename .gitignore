@@ -134,3 +134,4 @@ journal/journal.log
 .idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_9_RELEASE.xml
 .idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_9_RELEASE.xml
 .idea/libraries/Maven__org_springframework_spring_tx_4_3_13_RELEASE.xml
+.idea/libraries/Maven__net_iharder_base64_2_3_8.xml
