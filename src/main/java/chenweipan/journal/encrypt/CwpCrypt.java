@@ -15,6 +15,12 @@ public class CwpCrypt {
 
     static byte[] salt = {1,6,11,92,4,42,11,2};
 
+    public static void main(String[] args) throws Exception {
+        System.out.println(cwpEncrypt("192.168.93.129:3306/journal"));
+        System.out.println(cwpDecrypt("7pCfQhomajtffrNx2RQk5bvdfzNmN0HSqPn5Dyruun8H8fL9Z3zLbZ6m8SHZWDWU"));
+
+    }
+
     public static String cwpEncrypt(String data) throws Exception {
         byte[] desByte = encrypt(data.getBytes("utf-8"),password);
         byte[] mixed = mix(desByte);
