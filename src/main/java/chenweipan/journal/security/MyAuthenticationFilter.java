@@ -15,27 +15,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+
 import chenweipan.journal.web.request.UserLoginRequest;
 
 public class MyAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-	private static final Logger logger = LoggerFactory.getLogger(MyAuthenticationFilter.class);
-	
-	@Override
+    private static final Logger logger = LoggerFactory.getLogger(MyAuthenticationFilter.class);
+
+    @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-    	if (!request.getMethod().equals("POST")||!request.getContentType().equals(MediaType.APPLICATION_JSON_VALUE)) {
+        if (!request.getMethod().equals("POST") || !request.getContentType().equals(MediaType.APPLICATION_JSON_VALUE)) {
             throw new AuthenticationServiceException("Authentication method not supported: " + request.getMethod());
         }
         ObjectMapper mapper = new ObjectMapper();
         UsernamePasswordAuthenticationToken authRequest = null;
-        try{
-	    	InputStream is = request.getInputStream();
-	    	UserLoginRequest authenticationBean = mapper.readValue(is,UserLoginRequest.class);
-	        logger.info("request is:{}",authenticationBean);
-	        authRequest = new UsernamePasswordAuthenticationToken(
-	                authenticationBean.getUser(), authenticationBean.getPwd());
-        }catch (IOException e) {
-        	logger.error("io expection:{}",e);
+        try {
+            InputStream is = request.getInputStream();
+            UserLoginRequest authenticationBean = mapper.readValue(is, UserLoginRequest.class);
+            logger.info("request is:{}", authenticationBean);
+            authRequest = new UsernamePasswordAuthenticationToken(
+                    authenticationBean.getUser(), authenticationBean.getPwd());
+        } catch (IOException e) {
+            logger.error("io expection:{}", e);
             authRequest = new UsernamePasswordAuthenticationToken(
                     "", "");
         }

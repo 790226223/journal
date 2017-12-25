@@ -3,17 +3,17 @@ package chenweipan.journal.web.response;
 import java.util.List;
 
 public class PageResp<T> {
-    private int total;
+    private Long total;
     private int items;
     private int page;
     private int totalPages;
     private List<T> content;
 
-    public int getTotal() {
+    public Long getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(Long total) {
         this.total = total;
     }
 

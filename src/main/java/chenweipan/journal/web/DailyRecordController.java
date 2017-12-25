@@ -16,31 +16,31 @@ public class DailyRecordController {
 
     @RequestMapping(value = "/record_page.json", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult queryRecordByPage(){
+    public CommonResult queryRecordByPage() {
         return null;
     }
 
     @RequestMapping(value = "/record_info.json", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult recordInfo(){
+    public CommonResult recordInfo() {
         return null;
     }
 
     @RequestMapping(value = "/new_record.json", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult createRecord(){
+    public CommonResult createRecord() {
         return null;
     }
 
     @RequestMapping(value = "/update_record.json", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult changeRecord(){
+    public CommonResult changeRecord() {
         return null;
     }
 
     @RequestMapping(value = "/del_record.json", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult deleteRecord(){
+    public CommonResult deleteRecord() {
         return null;
     }
 }

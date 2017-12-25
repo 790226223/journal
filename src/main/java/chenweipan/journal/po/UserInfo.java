@@ -1,22 +1,20 @@
 package chenweipan.journal.po;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "user_info")
 public class UserInfo {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
     private long id;
 
     @Column(name = "user_id")
-    private Integer userId;
+    private Long userId;
 
     @Column(name = "default_type")
-    private Integer defaultType;
+    private Long defaultType;
 
     public long getId() {
         return id;
@@ -26,19 +24,19 @@ public class UserInfo {
         this.id = id;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getDefaultType() {
+    public Long getDefaultType() {
         return defaultType;
     }
 
-    public void setDefaultType(Integer defaultType) {
+    public void setDefaultType(Long defaultType) {
         this.defaultType = defaultType;
     }
 

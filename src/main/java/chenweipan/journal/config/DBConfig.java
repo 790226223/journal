@@ -23,7 +23,7 @@ public class DBConfig {
     public ComboPooledDataSource dataSource() throws Exception {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         dataSource.setDriverClass(env.getProperty("db.driverClassName"));
-        dataSource.setJdbcUrl("jdbc:mysql://"+ CwpCrypt.cwpDecrypt(env.getProperty("db.url"))+"?useUnicode=true&amp;characterEncoding=utf-8");
+        dataSource.setJdbcUrl("jdbc:mysql://" + CwpCrypt.cwpDecrypt(env.getProperty("db.url")) + "?useUnicode=true&amp;characterEncoding=utf-8");
         dataSource.setUser(CwpCrypt.cwpDecrypt(env.getProperty("db.username")));
         dataSource.setPassword(CwpCrypt.cwpDecrypt(env.getProperty("db.password")));
         dataSource.setMaxPoolSize(20);

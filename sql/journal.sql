@@ -30,6 +30,7 @@ CREATE TABLE daily_type(
 	id INT (11) NOT NULL AUTO_INCREMENT ,
 	type_name VARCHAR (100) NOT NULL ,
 	descript VARCHAR (1024) ,
+	user_id INT (11) NOT NULL ,
 	PRIMARY KEY (id)
 );
 

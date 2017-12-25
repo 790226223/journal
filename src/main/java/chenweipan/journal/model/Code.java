@@ -16,7 +16,11 @@ public enum Code {
 
     NAME_PWD_ERROR("登录失败，请重新登录", 401),
 
-    NOT_LOGIN("用户未登录", 411);
+    NOT_LOGIN("用户未登录", 411),
+
+    PERMITTED_ERROR("权限不足", 151),
+
+    NOT_OPEN("暂未开放", 150);
 
 
     private String message;

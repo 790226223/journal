@@ -11,21 +11,4 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class DailyRecordServiceImpl implements DailyRecordService {
 
-	@Autowired
-	DailyRecordRepository dailyRecordRepository;
-
-	public void createNewJournal(String dayTime, String things, String descript, Integer count, String unit,
-			String start, String end) {
-//		System.out.println("dayTime:" + dayTime.toString() + ",start:" + start + ",end:" + end);
-//		DailyRecord record = new DailyRecord();
-//		record.setDayTime(dayTime);
-//		record.setDescript(descript);
-//		record.setCount(count);
-//		record.setUnits(unit);
-//		record.setStartTime(start);
-//		record.setEndTime(end);
-//		dailyRecordRepository.saveAndFlush(record);
-
-	}
-
 }
