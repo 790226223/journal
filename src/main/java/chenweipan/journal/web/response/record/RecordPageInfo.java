@@ -1,17 +1,17 @@
 package chenweipan.journal.web.response.record;
 
 public class RecordPageInfo {
-    private int id;
+    private Long id;
     private String dayTime;
     private String title;
     private String desc;
     private String type;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

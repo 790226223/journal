@@ -3,13 +3,13 @@ package chenweipan.journal.web.request.record;
 import chenweipan.journal.web.request.PageReq;
 
 public class RecordPageReq extends PageReq {
-    private int type;
+    private Long type;
 
-    public int getType() {
+    public Long getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(Long type) {
         this.type = type;
     }
 

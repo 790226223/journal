@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("daily_type")
-public class DailyTypeController {
+public class DailyTypeController extends BaseController {
 
     private static final Logger logger = LoggerFactory.getLogger(DailyTypeController.class);
 
@@ -69,19 +69,18 @@ public class DailyTypeController {
 
     @RequestMapping(value = "/del_type.json", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult delType() {
-        CommonResult result = new CommonResult();
-        result.setCode(Code.NOT_OPEN);
-        return result;
+    public CommonResult delType(@RequestBody IdReq req) {
+        return notOpenResult(req);
     }
 
     @RequestMapping(value = "/set_default_type.json", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult setDefaultType(@RequestBody IdReq req) {
-        logger.info("req:{}",req);
+        logger.info("req:{}", req);
         CommonResult result = new CommonResult();
         JournalUser operator = (JournalUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         userInfoBusiness.setDefaultType(req.getId(), operator.getId());
+        logger.info("result:{}", result);
         return result;
     }
 
@@ -92,6 +91,7 @@ public class DailyTypeController {
         JournalUser operator = (JournalUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         TypePageInfo info = userInfoBusiness.getDefaultType(operator.getId());
         result.setDetail(info);
+        logger.info("result:{}", result);
         return result;
     }
 }

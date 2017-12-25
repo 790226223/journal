@@ -1,11 +1,11 @@
 CREATE TABLE daily_record
 (
 	id INT (11) NOT NULL AUTO_INCREMENT ,
-	day_time DATE NOT NULL ,
+	day_time DATETIME NOT NULL ,
 	title VARCHAR (100) NOT NULL ,
 	descript VARCHAR (6144) ,
 	user_id INT (11) NOT NULL ,
-	sport_id INT (11) NOT NULL ,
+	sport_id INT (11) ,
 	PRIMARY KEY (id)
 );
 

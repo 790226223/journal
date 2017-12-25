@@ -1,20 +1,20 @@
 package chenweipan.journal.web.request.record;
 
 public class AddRecordReq {
-    private int type;
+    private Long type;
     private String title;
     private String descript;
     private String things;
-    private Integer counter;
+    private Integer count;
     private String units;
     private String startTime;
     private String endTime;
 
-    public int getType() {
+    public Long getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(Long type) {
         this.type = type;
     }
 
@@ -42,12 +42,12 @@ public class AddRecordReq {
         this.things = things;
     }
 
-    public Integer getCounter() {
-        return counter;
+    public Integer getCount() {
+        return count;
     }
 
-    public void setCounter(Integer counter) {
-        this.counter = counter;
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     public String getUnits() {
@@ -81,7 +81,7 @@ public class AddRecordReq {
                 ", title='" + title + '\'' +
                 ", descript='" + descript + '\'' +
                 ", things='" + things + '\'' +
-                ", counter=" + counter +
+                ", counter=" + count +
                 ", units='" + units + '\'' +
                 ", startTime='" + startTime + '\'' +
                 ", endTime='" + endTime + '\'' +

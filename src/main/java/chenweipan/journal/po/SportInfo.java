@@ -2,6 +2,8 @@ package chenweipan.journal.po;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Time;
+import java.util.Date;
 
 @Entity
 @Table(name = "sport_info")
@@ -16,16 +18,16 @@ public class SportInfo implements Serializable {
     private String things;
 
     @Column(name = "count")
-    private Long count;
+    private Integer count;
 
     @Column(name = "units")
     private String units;
 
     @Column(name = "start_time")
-    private String startTime;
+    private Time startTime;
 
     @Column(name = "end_time")
-    private String endTime;
+    private Time endTime;
 
     public long getId() {
         return id;
@@ -43,11 +45,11 @@ public class SportInfo implements Serializable {
         this.things = things;
     }
 
-    public Long getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(Long count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 
@@ -59,19 +61,19 @@ public class SportInfo implements Serializable {
         this.units = units;
     }
 
-    public String getStartTime() {
+    public Time getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(String startTime) {
+    public void setStartTime(Time startTime) {
         this.startTime = startTime;
     }
 
-    public String getEndTime() {
+    public Time getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(String endTime) {
+    public void setEndTime(Time endTime) {
         this.endTime = endTime;
     }
 

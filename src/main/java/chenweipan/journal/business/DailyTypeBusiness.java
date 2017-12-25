@@ -70,6 +70,9 @@ public class DailyTypeBusiness {
 
     public void changeType(ChangeTypeReq req, Long operator) throws JournalException {
         DailyType type = typeService.findById(new Integer(req.getId()).longValue());
+        if(type==null){
+            throw new JournalException(Code.TYPE_NOT_FOUND);
+        }
         if (!type.getUserId().equals(operator)) {
             throw new JournalException(Code.PERMITTED_ERROR);
         }

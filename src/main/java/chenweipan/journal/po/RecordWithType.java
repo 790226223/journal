@@ -1,18 +1,12 @@
 package chenweipan.journal.po;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "daily_record")
-public class DailyRecord implements Serializable {
-
-    /**
-     *
-     */
-    private static final long serialVersionUID = -5030238457924472593L;
+public class RecordWithType implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +27,13 @@ public class DailyRecord implements Serializable {
 
     @Column(name = "sport_id")
     private Long sportId;
+
+    @ManyToMany
+    @JoinTable(
+            name="record_type",
+            joinColumns=@JoinColumn(name="record_id", referencedColumnName="id"),
+            inverseJoinColumns=@JoinColumn(name="type_id", referencedColumnName="id"))
+    private List<DailyType> types;
 
     public long getId() {
         return id;
@@ -82,15 +83,24 @@ public class DailyRecord implements Serializable {
         this.sportId = sportId;
     }
 
+    public List<DailyType> getTypes() {
+        return types;
+    }
+
+    public void setTypes(List<DailyType> types) {
+        this.types = types;
+    }
+
     @Override
     public String toString() {
-        return "DailyRecord{" +
+        return "RecordWithType{" +
                 "id=" + id +
-                ", dayTime='" + dayTime + '\'' +
+                ", dayTime=" + dayTime +
                 ", title='" + title + '\'' +
                 ", descript='" + descript + '\'' +
                 ", userId=" + userId +
                 ", sportId=" + sportId +
+                ", types=" + types +
                 '}';
     }
 }

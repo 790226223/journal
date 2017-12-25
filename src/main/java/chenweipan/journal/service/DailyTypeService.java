@@ -12,4 +12,5 @@ public interface DailyTypeService {
     public DailyType findById(Long id);
 
     public void changeType(DailyType type, String name, String desc);
+
 }

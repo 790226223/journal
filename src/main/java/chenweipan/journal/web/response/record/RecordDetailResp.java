@@ -1,23 +1,23 @@
 package chenweipan.journal.web.response.record;
 
 public class RecordDetailResp {
-    private int id;
+    private Long id;
     private String dayTime;
     private String title;
     private String descript;
     private String type;
     private String typeDesc;
     private String things;
-    private int count;
+    private Integer count;
     private String units;
     private String startTime;
     private String endTime;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -69,11 +69,11 @@ public class RecordDetailResp {
         this.things = things;
     }
 
-    public int getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 
