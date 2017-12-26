@@ -2,51 +2,70 @@ package chenweipan.journal.po;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "daily_type")
 public class DailyType implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8298710068437139612L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = -8298710068437139612L;
 
-	@Id
-	@Column(name = "id", nullable = false, unique = true)
-	private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, unique = true)
+    private long id;
 
-	@Column(name = "type_name", nullable = false)
-	private String typeName;
+    @Column(name = "type_name", nullable = false)
+    private String typeName;
 
-	@Column(name = "descript", nullable = false)
-	private String descript;
+    @Column(name = "descript")
+    private String descript;
 
-	public long getId() {
-		return id;
-	}
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public String getTypeName() {
-		return typeName;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public void setTypeName(String typeName) {
-		this.typeName = typeName;
-	}
+    public String getTypeName() {
+        return typeName;
+    }
 
-	public String getDescript() {
-		return descript;
-	}
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
 
-	public void setDescript(String descript) {
-		this.descript = descript;
-	}
+    public String getDescript() {
+        return descript;
+    }
+
+    public void setDescript(String descript) {
+        this.descript = descript;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return "DailyType{" +
+                "id=" + id +
+                ", typeName='" + typeName + '\'' +
+                ", descript='" + descript + '\'' +
+                ", userId=" + userId +
+                '}';
+    }
 }
