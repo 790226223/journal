@@ -32,7 +32,7 @@ public class RecordTypeSpecification implements Specification<RecordAndType> {
         if(typeId!=null){
             List<Long> values = new ArrayList<Long>();
             values.add(typeId);
-            list.add(criteriaBuilder.and(root.<Boolean>get("typeId").<Boolean>get("").in(values)));
+            list.add(criteriaBuilder.and(root.<Boolean>get("typeId").get("id").in(values)));
         }
         return criteriaBuilder.and(list.toArray(new Predicate[list.size()]));
     }
