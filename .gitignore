@@ -68,8 +68,6 @@
 .idea/workspace.xml
 .settings/org.eclipse.core.resources.prefs
 chenweipan.iml
-src/main/java/chenweipan/journal/security/AuthenticationHandler.java
-src/main/java/chenweipan/journal/security/LoginUserServiceImpl.java
 .idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml
 .idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_8.xml
 .idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_8.xml
