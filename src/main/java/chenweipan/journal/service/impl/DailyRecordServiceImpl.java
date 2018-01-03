@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Time;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 
 @Service()
 @Transactional(rollbackFor = Exception.class)
@@ -91,6 +92,11 @@ public class DailyRecordServiceImpl implements DailyRecordService {
             record.setSportId(null);
         }
         dailyRecordRepository.saveAndFlush(record);
+    }
+
+    @Override
+    public List<DailyRecord> findByTitle(String title) {
+        return dailyRecordRepository.findByTitle(title);
     }
 
     private void setSportId(DailyRecord dailyRecord, Long sportId) {

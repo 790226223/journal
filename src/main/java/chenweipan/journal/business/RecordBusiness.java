@@ -57,7 +57,16 @@ public class RecordBusiness {
     public void newRecord(AddRecordReq req, Long operator) throws ParseException, JournalException {
         logger.info("req:{},operator:{}", req, operator);
         checkTypeExist(req.getType());
+        if (!req.isTitleSame()) {
+            checkTitleExist(req.getTitle());
+        }
         dailyRecordService.addRecord(req, operator);
+    }
+
+    private void checkTitleExist(String title) throws JournalException {
+        if (dailyRecordService.findByTitle(title).size() > 0) {
+            throw new JournalException(Code.RECORD_EXIST);
+        }
     }
 
     private void checkTypeExist(Long type2) throws JournalException {
@@ -94,7 +103,7 @@ public class RecordBusiness {
 
     public PageResp<RecordPageInfo> findByPage(RecordPageReq req, Long operator) {
         logger.info("req:{},operator:{}", req, operator);
-        RecordTypeSpecification spec = new RecordTypeSpecification(operator, req.getType());
+        RecordTypeSpecification spec = new RecordTypeSpecification(operator, req.getType(), req.getTitle());
         PageRequest request = new PageRequest(req.getPage() - 1, req.getRows(), Sort.Direction.DESC, "recordId.id");
         Page<RecordAndType> pageInfo = recordAndTypeRepository.findAll(spec, request);
         PageResp<RecordPageInfo> result = toPageResp(pageInfo);
@@ -130,7 +139,7 @@ public class RecordBusiness {
         return recordPageInfo;
     }
 
-    public RecordDetailResp getDetail(Long id){
+    public RecordDetailResp getDetail(Long id) {
         RecordDetailResp result = new RecordDetailResp();
         DailyRecord record = dailyRecordService.findById(id);
         RecordType recordType = recordTypeRepository.findByRecordId(record.getId());
@@ -141,7 +150,7 @@ public class RecordBusiness {
         result.setType(type.getTypeName());
         result.setTypeDesc(type.getDescript());
         result.setDayTime(DateUtil.DATE_FORMAT.format(record.getDayTime()));
-        if(record.getSportId()!=null){
+        if (record.getSportId() != null) {
             SportInfo sportInfo = sportInfoRepository.findOne(record.getSportId());
             result.setThings(sportInfo.getThings());
             result.setCount(sportInfo.getCount());

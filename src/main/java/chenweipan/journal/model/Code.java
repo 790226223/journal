@@ -24,7 +24,9 @@ public enum Code {
 
     TYPE_NOT_FOUND("类型不存在", 811),
 
-    RECORD_NOT_FOUND("类型不存在", 801);
+    RECORD_NOT_FOUND("日志不存在", 801),
+
+    RECORD_EXIST("日志已存在", 802);
 
 
     private String message;

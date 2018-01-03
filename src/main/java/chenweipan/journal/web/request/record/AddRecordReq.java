@@ -9,6 +9,7 @@ public class AddRecordReq {
     private String units;
     private String startTime;
     private String endTime;
+    private boolean titleSame = false;
 
     public Long getType() {
         return type;
@@ -74,6 +75,14 @@ public class AddRecordReq {
         this.endTime = endTime;
     }
 
+    public boolean isTitleSame() {
+        return titleSame;
+    }
+
+    public void setTitleSame(boolean titleSame) {
+        this.titleSame = titleSame;
+    }
+
     @Override
     public String toString() {
         return "AddRecordReq{" +
@@ -81,10 +90,11 @@ public class AddRecordReq {
                 ", title='" + title + '\'' +
                 ", descript='" + descript + '\'' +
                 ", things='" + things + '\'' +
-                ", counter=" + count +
+                ", count=" + count +
                 ", units='" + units + '\'' +
                 ", startTime='" + startTime + '\'' +
                 ", endTime='" + endTime + '\'' +
+                ", titleSame=" + titleSame +
                 '}';
     }
 }

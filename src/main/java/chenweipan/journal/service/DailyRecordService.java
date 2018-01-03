@@ -5,6 +5,7 @@ import chenweipan.journal.web.request.record.AddRecordReq;
 import chenweipan.journal.web.request.record.ChangeRecord;
 
 import java.text.ParseException;
+import java.util.List;
 
 public interface DailyRecordService {
 
@@ -13,4 +14,6 @@ public interface DailyRecordService {
     public DailyRecord findById(Long id);
 
     public void updateRecord(ChangeRecord req, Long operator) throws ParseException;
+
+    public List<DailyRecord> findByTitle(String title);
 }
